@@ -1,0 +1,17 @@
+Planned Bugs
+
+Instead of random mistakes, we'll intentionally create realistic ones.
+
+Bug	Type
+Divide by zero	Runtime
+Wrong average calculation	Logic
+File not found crash	File I/O
+Invalid input crash	Validation
+Infinite loop	Loop
+IndexError	List
+Wrong condition	Conditional
+Missing exception handling	Runtime
+Duplicate student issue	Logic
+Wrong sorting	Algorithm
+
+Around 10 bugs.
