@@ -64,3 +64,22 @@ The primary objectives of this project are to:
 - Improve code readability through refactoring.
 - Validate fixes using manual and automated testing.
 - Maintain clean version control throughout development..
+
+## Current Progress
+
+Phase 2.2 – Student Model
+Implemented the Student model with the following features:
+- Student ID, name, marks, and creation timestamp
+- Input validation for student name and marks
+- Serialization using to_dict()
+- Deserialization using from_dict()
+- Readable string representation using __str__()
+
+Verification
+The Student model was manually tested for:
+- Creating valid student records
+- Converting objects to dictionaries
+- Reconstructing objects from dictionaries
+- Rejecting empty student names
+- Rejecting marks outside the valid range (0–100)
+All tests passed successfully.
