@@ -1,3 +1,82 @@
+Week 2 Strategy
+
+Unlike Week 1, this project is not about building an application.
+
+It is about demonstrating the software debugging lifecycle.
+
+The evaluator wants to see:
+
+Bug
+↓
+How you found it
+↓
+How you reproduced it
+↓
+How you debugged it
+↓
+How you fixed it
+↓
+How you verified the fix
+
+NOT
+
+Bug
+↓
+
+Fixed
+Project Idea
+
+We'll build a small but realistic application that contains intentional bugs.
+
+Project
+
+Student Grade Management System (CLI)
+
+Why this?
+
+Because it naturally contains:
+
+file handling
+loops
+conditionals
+calculations
+list processing
+searching
+averages
+input validation
+
+Exactly the areas mentioned in the task.
+
+Final Project Structure
+week2_debugging_project/
+
+│
+├── buggy_version/
+│      student_manager.py
+│
+├── fixed_version/
+│      student_manager.py
+│
+├── tests/
+│      test_student_manager.py
+│
+├── docs/
+│      BUG_REPORT.md
+│      DEBUG_LOG.md
+│
+├── README.md
+├── requirements.txt
+└── report.docx
+
+Notice:
+
+We keep
+
+original buggy version
+corrected version
+
+This looks very professional.
+
 Planned Bugs
 
 Instead of random mistakes, we'll intentionally create realistic ones.
@@ -15,3 +94,220 @@ Duplicate student issue	Logic
 Wrong sorting	Algorithm
 
 Around 10 bugs.
+
+Enough to make a solid debugging report.
+
+Deliverables
+
+By the end we'll have
+
+Code
+buggy version
+fixed version
+Documentation
+
+README
+
+BUG_REPORT
+
+DEBUG_LOG
+
+Testing
+
+Manual tests
+
+Automated tests
+
+(using unittest)
+
+Report
+
+With
+
+screenshots
+before/after snippets
+metrics
+debugging timeline
+Git Timeline
+
+This is very important.
+
+Commit 1
+
+Project structure
+
+↓
+
+Commit 2
+
+Buggy application created
+
+↓
+
+Commit 3
+
+Initial code review
+
+↓
+
+Commit 4
+
+Bug report
+
+↓
+
+Commit 5
+
+Fix Bug #1
+
+↓
+
+Commit 6
+
+Fix Bug #2
+
+↓
+
+Commit 7
+
+Fix Bug #3
+
+↓
+
+Commit 8
+
+Refactoring
+
+↓
+
+Commit 9
+
+Automated tests
+
+↓
+
+Commit 10
+
+Documentation
+
+↓
+
+Commit 11
+
+Final report
+
+Beautiful commit history.
+
+README Growth
+
+Instead of writing README at the end,
+
+we'll update it every phase.
+
+Phase 1
+
+Project Overview
+
+Structure
+
+Phase 2
+
+Application Features
+
+Phase 3
+
+Bug Summary
+
+Phase 4
+
+Debugging Process
+
+Phase 5
+
+Testing
+
+Phase 6
+
+Final Metrics
+
+Our Development Rules
+
+From now on every phase follows:
+
+Implement
+
+↓
+
+Verify
+
+↓
+
+Review
+
+↓
+
+Commit
+
+↓
+
+Update README
+
+↓
+
+Next Phase
+
+Never jump ahead.
+
+Phase 1 (Today)
+
+We'll only do this:
+
+Create project
+week2_debugging_project/
+
+│
+├── buggy_version/
+│
+├── fixed_version/
+│
+├── tests/
+│
+├── docs/
+│
+├── README.md
+├── requirements.txt
+├── .gitignore
+
+README should initially contain:
+
+Project title
+Objective
+Folder structure
+Development roadmap
+
+Nothing more.
+
+Then:
+
+git add .
+git commit -m "Initialize Week 2 debugging project structure"
+git push
+🚨 One suggestion
+
+I want to make one change compared to Week 1.
+
+Last time, we built the project from scratch.
+
+This time, let's behave like you're maintaining an existing application.
+
+That means we'll first build a working Student Grade Management System, then intentionally create a separate buggy copy by introducing realistic defects. This makes the debugging process authentic—you can clearly show the original bug, reproduce it, fix it, and compare the before/after behavior.
+
+It's a much stronger story for your report and aligns better with the task's emphasis on debugging rather than initial development.
+
+So we'll have three versions conceptually:
+
+Original working version (used only during development)
+Buggy version (the one we'll analyze and debug)
+Fixed version (the final corrected deliverable)
+
+The report will compare the buggy and fixed versions, making your debugging process much more convincing. I think this approach will score better than simply writing buggy code from the beginning.
