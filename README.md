@@ -63,4 +63,4 @@ The primary objectives of this project are to:
 - Document the debugging process clearly.
 - Improve code readability through refactoring.
 - Validate fixes using manual and automated testing.
-- Maintain clean version control throughout development.
+- Maintain clean version control throughout development..
