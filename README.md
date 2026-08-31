@@ -6,13 +6,15 @@ This project demonstrates the process of identifying, reproducing, debugging, an
 
 ## Project Structure
 
-```
+```text
 week2_debugging_project/
 │
-├── buggy_version/      # Original application containing intentional bugs
-├── fixed_version/      # Corrected application after debugging
-├── tests/              # Automated unit tests
-├── docs/               # Bug report and debugging log
+├── buggy_version/        # Application with intentionally introduced bugs
+├── fixed_version/        # Corrected and refactored application
+├── tests/                # Automated unit tests
+├── docs/
+│   ├── BUG_REPORT.md     # Summary of identified bugs
+│   └── DEBUG_LOG.md      # Step-by-step debugging process
 ├── README.md
 ├── requirements.txt
 └── report.docx
@@ -27,3 +29,38 @@ week2_debugging_project/
 - Debug and fix each issue
 - Add automated tests
 - Prepare final documentation and report
+
+## Technologies Used
+
+- Python 3.x
+- JSON (Standard Library)
+- unittest (Standard Library)
+- pathlib
+- datetime
+
+## Planned Application
+
+The project demonstrates debugging techniques using a Student Grade Management System developed as a command-line application.
+
+The application will allow users to:
+
+- Add student records
+- View students
+- Search students
+- Update marks
+- Delete records
+- Calculate class average
+- Display the highest scoring student
+
+The project follows a modular architecture separating the CLI, business logic, data model, and storage layers.
+
+## Learning Goals
+
+The primary objectives of this project are to:
+
+- Practice systematic debugging techniques.
+- Identify and reproduce software defects.
+- Document the debugging process clearly.
+- Improve code readability through refactoring.
+- Validate fixes using manual and automated testing.
+- Maintain clean version control throughout development.
