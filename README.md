@@ -83,3 +83,17 @@ The Student model was manually tested for:
 - Rejecting empty student names
 - Rejecting marks outside the valid range (0–100)
 All tests passed successfully.
+
+### Phase 2.3 – Storage Layer
+
+Implemented the persistence layer responsible for storing and retrieving student records.
+
+Features:
+
+- Save student records to JSON
+- Load student records from JSON
+- Graceful handling of missing files
+- Graceful handling of empty files
+- Graceful handling of corrupted JSON
+
+All persistence functionality was manually verified before integration.

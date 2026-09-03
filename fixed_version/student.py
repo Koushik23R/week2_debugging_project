@@ -1,4 +1,5 @@
 from __future__ import annotations #optional
+
 """
 student.py
 
@@ -8,18 +9,16 @@ The class stores student information and provides helper methods
 for serialization and display.
 """
 
-#imports
 from datetime import datetime
 
 class Student:
     """Represents a single student record."""
     def __init__(self, student_id: int, name: str, marks: float):
-        # Validate name
+        # Validate marks
         name = name.strip()
 
         if not name:
             raise ValueError("Name cannot be empty or contain only whitespace.")
-
 
         # Validate marks
         if not (0 <= marks <= 100):
