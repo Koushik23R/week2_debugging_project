@@ -1,15 +1,15 @@
-from student import Student
-from storage import load_students, save_students
+from fixed_version.student import Student
+from fixed_version.storage import load_students, save_students
 
 
 class StudentManager:
-    def __init__(self):
+    def __init__(self) -> None:
         self._students = load_students()
 
-    def get_students(self) -> list:
+    def get_students(self) -> list[Student]:
         return self._students.copy()
 
-    def add_student(self, student_id: int, name: str, marks: float):
+    def add_student(self, student_id: int, name: str, marks: float) -> Student | None:
         student = Student(student_id, name, marks)
 
         self._students.append(student)
@@ -20,7 +20,7 @@ class StudentManager:
         self._students.pop()
         return None
 
-    def find_student(self, student_id: int):
+    def find_student(self, student_id: int) -> Student | None:
         for student in self._students:
             if student.student_id == student_id:
                 return student
@@ -66,7 +66,7 @@ class StudentManager:
         total = sum(student.marks for student in self._students)
         return total / len(self._students)
 
-    def get_top_student(self):
+    def get_top_student(self) -> Student | None:
         if not self._students:
             return None
 
