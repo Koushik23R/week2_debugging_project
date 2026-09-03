@@ -12,12 +12,6 @@
         "created_at": "2026-09-03T19:40:22.228558"
     },
     {
-        "student_id": 101,
-        "name": "Alice",
-        "marks": 89,
-        "created_at": "2026-09-03T19:40:34.169148"
-    },
-    {
         "student_id": 102,
         "name": "Bob",
         "marks": 76,
@@ -28,5 +22,23 @@
         "name": "Charlie",
         "marks": 95,
         "created_at": "2026-09-03T19:40:34.172568"
+    },
+    {
+        "student_id": 101,
+        "name": "Alice",
+        "marks": 89,
+        "created_at": "2026-09-03T19:43:22.870386"
+    },
+    {
+        "student_id": 102,
+        "name": "Bob",
+        "marks": 76,
+        "created_at": "2026-09-03T19:43:22.871952"
+    },
+    {
+        "student_id": 103,
+        "name": "Charlie",
+        "marks": 95,
+        "created_at": "2026-09-03T19:43:22.873502"
     }
 ]

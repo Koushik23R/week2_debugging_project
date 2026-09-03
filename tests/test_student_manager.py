@@ -2,9 +2,9 @@ import sys
 from pathlib import Path
 
 project_root = Path(__file__).resolve().parent.parent
-sys.path.append(str(project_root / "fixed_version"))
+sys.path.insert(0, str(project_root))
 
-from student_manager import StudentManager
+from fixed_version.student_manager import StudentManager
 
 manager = StudentManager()
 
@@ -14,6 +14,7 @@ manager.add_student(101, "Alice", 89)
 manager.add_student(102, "Bob", 76)
 manager.add_student(103, "Charlie", 95)
 
+print(f"This is verification:{manager.get_students()}")
 print("PASS")
 
 

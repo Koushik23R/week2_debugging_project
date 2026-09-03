@@ -7,7 +7,7 @@ Handles saving and loading student records from JSON storage.
 import json
 from pathlib import Path
 
-from student import Student
+from fixed_version.student import Student
 
 DATA_FILE = Path("data/students.json")
 

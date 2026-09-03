@@ -97,3 +97,18 @@ Features:
 - Graceful handling of corrupted JSON
 
 All persistence functionality was manually verified before integration.
+
+### Phase 2.4 – Student Manager
+
+Implemented the business logic layer responsible for managing student records.
+
+Features:
+
+- Add students
+- Remove students
+- Search students by ID
+- Update marks
+- Calculate class average
+- Identify the highest-scoring student
+
+The manager automatically saves all changes using the storage layer.
