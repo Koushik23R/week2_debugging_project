@@ -1,0 +1,38 @@
+[
+    {
+        "student_id": 102,
+        "name": "Bob",
+        "marks": 91,
+        "created_at": "2026-09-03T19:45:18.880471"
+    },
+    {
+        "student_id": 103,
+        "name": "Charlie",
+        "marks": 95,
+        "created_at": "2026-09-03T19:45:18.882860"
+    },
+    {
+        "student_id": 102,
+        "name": "Bob",
+        "marks": 76,
+        "created_at": "2026-09-03T19:51:11.999378"
+    },
+    {
+        "student_id": 103,
+        "name": "Charlie",
+        "marks": 95,
+        "created_at": "2026-09-03T19:51:12.000626"
+    },
+    {
+        "student_id": 102,
+        "name": "Bob",
+        "marks": 76,
+        "created_at": "2026-09-03T19:52:09.049714"
+    },
+    {
+        "student_id": 103,
+        "name": "Charlie",
+        "marks": 95,
+        "created_at": "2026-09-03T19:52:09.051091"
+    }
+]
