@@ -1,5 +1,5 @@
-from fixed_version.student import Student
-from fixed_version.storage import load_students, save_students
+from student import Student
+from storage import load_students, save_students
 
 
 class StudentManager:

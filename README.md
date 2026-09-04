@@ -112,3 +112,17 @@ Features:
 - Identify the highest-scoring student
 
 The manager automatically saves all changes using the storage layer.
+
+### Phase 2.5 – Command Line Interface
+
+Implemented the user interface for the Student Grade Management System.
+
+Features:
+
+- Interactive menu
+- Input validation
+- Student management operations
+- Statistics display
+- Graceful error handling
+
+The CLI delegates all business operations to the StudentManager and focuses only on user interaction.

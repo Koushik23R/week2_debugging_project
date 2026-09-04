@@ -1,14 +1,1 @@
-[
-    {
-        "student_id": 102,
-        "name": "Bob",
-        "marks": 91,
-        "created_at": "2026-09-03T20:09:05.912074"
-    },
-    {
-        "student_id": 103,
-        "name": "Charlie",
-        "marks": 95,
-        "created_at": "2026-09-03T20:09:05.913250"
-    }
-]
+[]

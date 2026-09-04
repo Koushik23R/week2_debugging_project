@@ -114,3 +114,22 @@ The storage layer is complete and ready for integration with the Student Manager
 
 ### Outcome
 The business logic layer is complete and ready to be connected to the command-line interface.
+
+## Phase 2.5 – Command Line Interface
+
+**Date:** 2026-09-04
+
+### Work Completed
+- Implemented the interactive CLI.
+- Added menu-driven navigation.
+- Connected all options to the StudentManager.
+- Implemented input validation and friendly error messages.
+
+### Verification
+- Verified all menu operations.
+- Confirmed invalid inputs are handled gracefully.
+- Confirmed application exits cleanly.
+- Verified persistence after restarting.
+
+### Outcome
+The Student Grade Management System is now fully functional and ready to be used as the baseline application before introducing intentional bugs.
