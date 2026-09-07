@@ -133,3 +133,19 @@ The business logic layer is complete and ready to be connected to the command-li
 
 ### Outcome
 The Student Grade Management System is now fully functional and ready to be used as the baseline application before introducing intentional bugs.
+
+## Phase 3 – Buggy Version
+
+**Date:** 2026-09-04
+
+### Work Completed
+- Created a baseline copy of the working application.
+- Verified that the copied version behaves identically to the fixed version.
+- Prepared the project for controlled bug introduction.
+
+### Verification
+- Successfully executed the copied application.
+- Confirmed identical functionality before introducing defects.
+
+### Outcome
+A stable baseline for the debugging phase has been established.

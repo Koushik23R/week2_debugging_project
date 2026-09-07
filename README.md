@@ -126,3 +126,9 @@ Features:
 - Graceful error handling
 
 The CLI delegates all business operations to the StudentManager and focuses only on user interaction.
+
+## Phase 3 – Buggy Version
+
+A separate copy of the fully functional application was created to simulate real-world debugging scenarios.
+
+The buggy version will be modified incrementally by introducing realistic software defects related to validation, persistence, conditional logic, file handling, and calculations. This approach preserves the working implementation while providing a controlled environment for debugging.
