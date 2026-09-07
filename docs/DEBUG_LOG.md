@@ -149,3 +149,20 @@ The Student Grade Management System is now fully functional and ready to be used
 
 ### Outcome
 A stable baseline for the debugging phase has been established.
+
+## Phase 3.1 – Bug Set 1
+
+**Date:** 2026-09-07
+
+### Work Completed
+- Introduced three intentional software defects.
+- Verified that each bug could be reproduced.
+- Created the initial bug report.
+
+### Verification
+- Confirmed incorrect average calculation.
+- Confirmed incorrect search behavior.
+- Confirmed invalid marks were accepted.
+
+### Outcome
+The first set of reproducible bugs is ready for systematic debugging.

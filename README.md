@@ -132,3 +132,7 @@ The CLI delegates all business operations to the StudentManager and focuses only
 A separate copy of the fully functional application was created to simulate real-world debugging scenarios.
 
 The buggy version will be modified incrementally by introducing realistic software defects related to validation, persistence, conditional logic, file handling, and calculations. This approach preserves the working implementation while providing a controlled environment for debugging.
+
+### Phase 3.1 – Initial Bug Introduction
+
+Introduced a controlled set of realistic defects into the buggy version of the application to simulate common software issues involving validation, conditional logic, and calculations. Each issue has been documented in the bug report and will be investigated and resolved during the debugging phase.
