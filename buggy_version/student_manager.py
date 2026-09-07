@@ -22,7 +22,7 @@ class StudentManager:
 
     def find_student(self, student_id: int) -> Student | None:
         for student in self._students:
-            if student.student_id != student_id:#bug 2 introduced here, should be student.student_id == student_id
+            if student_id != student_id:#bug 2 introduced here, should be student.student_id == student_id
                 return student
 
         return None
@@ -51,10 +51,10 @@ class StudentManager:
             return False
 
         old_marks = student.marks
+
         student.marks = new_marks
 
-        if save_students(self._students):
-            return True
+        return True #bug4 introduced here, should be if save_students(self._students): return True
 
         student.marks = old_marks
         return False

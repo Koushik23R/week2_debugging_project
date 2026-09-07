@@ -136,3 +136,7 @@ The buggy version will be modified incrementally by introducing realistic softwa
 ### Phase 3.1 – Initial Bug Introduction
 
 Introduced a controlled set of realistic defects into the buggy version of the application to simulate common software issues involving validation, conditional logic, and calculations. Each issue has been documented in the bug report and will be investigated and resolved during the debugging phase.
+
+### Phase 3.2 – Additional Bug Introduction
+
+Introduced another set of realistic defects affecting persistence, file handling, business rules, and user input processing. These issues expand the debugging scenarios and simulate problems commonly encountered in production software.

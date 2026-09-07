@@ -166,3 +166,21 @@ A stable baseline for the debugging phase has been established.
 
 ### Outcome
 The first set of reproducible bugs is ready for systematic debugging.
+
+## Phase 3.2 – Bug Set 2
+
+**Date:** 2026-09-07
+
+### Work Completed
+- Introduced four additional defects.
+- Verified reproducible persistence, file handling, business logic, and CLI input issues.
+- Updated the bug report with all newly discovered defects.
+
+### Verification
+- Confirmed updated marks are not persisted.
+- Confirmed corrupted JSON causes an application failure.
+- Confirmed duplicate IDs are accepted.
+- Confirmed menu input with whitespace is mishandled.
+
+### Outcome
+Seven documented, reproducible bugs are now available for the debugging phase.
