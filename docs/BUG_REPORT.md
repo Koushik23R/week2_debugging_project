@@ -23,9 +23,17 @@ Logic Error
 
 91
 
+### Root Cause
+
+The `calculate_average()` method used floor division (`//`), which truncates the decimal portion and returns an integer-like result instead of a floating-point average.
+
+### Resolution
+
+Updated the calculation to use true division (`/`) so the average is returned as a decimal value matching the expected result.
+
 ### Status
 
-Open
+Closed
 
 ---
 

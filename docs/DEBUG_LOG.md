@@ -184,3 +184,25 @@ The first set of reproducible bugs is ready for systematic debugging.
 
 ### Outcome
 Seven documented, reproducible bugs are now available for the debugging phase.
+
+---
+
+## Phase 4 – Debugging & Troubleshooting
+
+**Date:** 2026-09-08
+
+### Investigation
+- Reproduced the average calculation defect in `buggy_version/student_manager.py`.
+- Confirmed the root cause was floor division in `calculate_average()`.
+- Verified the bug affected the output value without changing the surrounding student logic.
+
+### Fix Applied
+- Updated the average calculation to use true division (`/`) so the result remains a floating-point value.
+- Kept the change limited to the average calculation and did not modify unrelated manager methods.
+
+### Verification
+- Ran the calculation with representative marks and confirmed the result is `91.67`.
+- Rechecked the module to ensure the original bug no longer reproduces.
+
+### Outcome
+- The average value now matches the expected decimal result and the debugging phase for Bug 1 is complete.

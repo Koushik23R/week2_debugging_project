@@ -1,8 +1,20 @@
 [
     {
         "student_id": 101,
-        "name": "Bob",
-        "marks": 87.0,
-        "created_at": "2026-09-07T20:17:02.957320"
+        "name": "A",
+        "marks": 90,
+        "created_at": "2026-09-08T21:49:48.163964"
+    },
+    {
+        "student_id": 102,
+        "name": "B",
+        "marks": 92,
+        "created_at": "2026-09-08T21:49:48.168037"
+    },
+    {
+        "student_id": 103,
+        "name": "C",
+        "marks": 93,
+        "created_at": "2026-09-08T21:49:48.171485"
     }
 ]

@@ -64,7 +64,7 @@ class StudentManager:
             return 0.0
 
         total = sum(student.marks for student in self._students)
-        return total // len(self._students) #bug1 introduced here, should be total / len(self._students)
+        return total / len(self._students)
 
     def get_top_student(self) -> Student | None:
         if not self._students:
