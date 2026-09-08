@@ -60,9 +60,17 @@ Correct student.
 
 Wrong student returned.
 
+### Root Cause
+
+The `find_student()` method compared `student_id != student_id` instead of checking whether the current student's `student_id` matched the requested ID, so it returned the wrong record or a false match.
+
+### Resolution
+
+Updated the condition to return a student only when `student.student_id == student_id`, and otherwise continue searching until no match is found.
+
 ### Status
 
-Open
+Closed
 
 ---
 

@@ -206,3 +206,22 @@ Seven documented, reproducible bugs are now available for the debugging phase.
 
 ### Outcome
 - The average value now matches the expected decimal result and the debugging phase for Bug 1 is complete.
+
+## Phase 4.2 – Bug 2 Resolution
+
+**Date:** 2026-09-08
+
+### Investigation
+- Reproduced the student search defect in `buggy_version/student_manager.py`.
+- Confirmed the comparison in `find_student()` was using the wrong value, causing the method to return the wrong record instead of the matching student.
+
+### Fix Applied
+- Corrected the condition in `find_student()` to return a student only when `student.student_id == student_id`.
+- Kept the fix limited to the search logic and did not alter any unrelated manager behavior.
+
+### Verification
+- Searched for student ID `102` and confirmed the method returns the correct student record: `ID:102 | Bob | Marks:91`.
+- Searched for a missing student ID and confirmed the result is `Student not found.`
+
+### Outcome
+- The student search now returns the correct record and Bug 2 is resolved.

@@ -22,7 +22,7 @@ class StudentManager:
 
     def find_student(self, student_id: int) -> Student | None:
         for student in self._students:
-            if student_id != student_id:#bug 2 introduced here, should be student.student_id == student_id
+            if student.student_id == student_id:
                 return student
 
         return None
