@@ -248,6 +248,14 @@ The application should trim whitespace and accept the menu option.
 
 The application rejects the input and displays an invalid menu choice message.
 
+### Root Cause
+
+In `buggy_version/main.py`, menu input was read without trimming whitespace, so values like `" 1"` or `"1 "` failed `isdigit()` validation.
+
+### Resolution
+
+Updated menu input handling to call `.strip()` before validation, allowing valid numeric choices with leading/trailing spaces.
+
 ### Status
 
-Open
+Closed

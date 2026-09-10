@@ -303,3 +303,22 @@ Seven documented, reproducible bugs are now available for the debugging phase.
 
 ### Outcome
 - Duplicate student IDs are now rejected correctly, and Bug 6 is resolved.
+
+## Phase 4.7 – Bug 7 Resolution
+
+**Date:** 2026-09-10
+
+### Investigation
+- Reproduced CLI failure by entering a valid menu option with surrounding spaces.
+- Confirmed `choice` in `buggy_version/main.py` was validated without stripping whitespace first.
+
+### Fix Applied
+- Updated menu input read path to `input(...).strip()` before numeric validation.
+- Left all menu routing logic unchanged.
+
+### Verification
+- Added `tests/test_buggy_cli_input_bug.py`.
+- Verified `" 8 "` is accepted as valid input and exits cleanly without invalid-number warning.
+
+### Outcome
+- CLI now handles leading/trailing spaces for menu options, and Bug 7 is resolved.
