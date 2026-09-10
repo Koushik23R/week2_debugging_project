@@ -136,9 +136,17 @@ The updated marks should be saved and displayed after restarting.
 
 The student's old marks are displayed because the update was not saved.
 
+### Root Cause
+
+In `buggy_version/student_manager.py`, `update_marks()` returned `True` immediately after changing the in-memory value, without calling `save_students()`.
+
+### Resolution
+
+Updated `update_marks()` to persist changes with `save_students(self._students)` before returning success, and rollback to old marks if persistence fails.
+
 ### Status
 
-Open
+Closed
 
 ---
 

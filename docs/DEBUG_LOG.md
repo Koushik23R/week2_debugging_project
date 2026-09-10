@@ -245,3 +245,22 @@ Seven documented, reproducible bugs are now available for the debugging phase.
 
 ### Outcome
 - Invalid marks are now rejected correctly, and Bug 3 is resolved with automated verification.
+
+## Phase 4.4 – Bug 4 Resolution
+
+**Date:** 2026-09-10
+
+### Investigation
+- Reproduced the persistence defect by updating a student's marks, restarting the manager, and observing old marks in reloaded data.
+- Identified that `update_marks()` in `buggy_version/student_manager.py` returned success before writing changes to disk.
+
+### Fix Applied
+- Restored persistence flow in `update_marks()` so it calls `save_students(self._students)` after in-memory update.
+- Kept rollback logic to restore previous marks when save fails.
+
+### Verification
+- Added `tests/test_buggy_persistence_bug.py` to verify updated marks remain after creating a new manager instance.
+- Confirmed the test passes and updated marks persist across reload.
+
+### Outcome
+- Marks updates are now durably saved, and Bug 4 is resolved.

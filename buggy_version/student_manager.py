@@ -54,7 +54,8 @@ class StudentManager:
 
         student.marks = new_marks
 
-        return True #bug4 introduced here, should be if save_students(self._students): return True
+        if save_students(self._students):
+            return True
 
         student.marks = old_marks
         return False
