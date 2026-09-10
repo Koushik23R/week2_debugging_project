@@ -174,9 +174,17 @@ The application should handle the corrupted file gracefully and display an appro
 
 The application crashes with a `JSONDecodeError`.
 
+### Root Cause
+
+`buggy_version/storage.py` did not handle `json.JSONDecodeError` inside `load_students()`, so corrupted JSON bubbled up and crashed the application path that loads student data.
+
+### Resolution
+
+Added explicit handling for `json.JSONDecodeError` in `load_students()` to safely return an empty list when JSON is corrupted.
+
 ### Status
 
-Open
+Closed
 
 ---
 

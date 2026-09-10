@@ -264,3 +264,23 @@ Seven documented, reproducible bugs are now available for the debugging phase.
 
 ### Outcome
 - Marks updates are now durably saved, and Bug 4 is resolved.
+
+## Phase 4.5 – Bug 5 Resolution
+
+**Date:** 2026-09-10
+
+### Investigation
+- Reproduced startup failure by corrupting the JSON file and loading the application.
+- Traced failure to `load_students()` in `buggy_version/storage.py`, where `json.loads()` raised `JSONDecodeError` without dedicated handling.
+
+### Fix Applied
+- Added `except json.JSONDecodeError: return []` in `load_students()` to gracefully handle corrupted JSON content.
+- Kept the storage API behavior unchanged for valid JSON and other error paths.
+
+### Verification
+- Added `tests/test_buggy_json_handling_bug.py`.
+- Verified corrupted JSON now returns an empty list instead of crashing.
+- Verified valid JSON still loads student records correctly.
+
+### Outcome
+- Corrupted JSON no longer crashes loading flow, and Bug 5 is resolved.
