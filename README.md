@@ -140,3 +140,10 @@ Introduced a controlled set of realistic defects into the buggy version of the a
 ### Phase 3.2 – Additional Bug Introduction
 
 Introduced another set of realistic defects affecting persistence, file handling, business rules, and user input processing. These issues expand the debugging scenarios and simulate problems commonly encountered in production software.
+
+## Phase 4 – Debugging & Troubleshooting (Current)
+
+- ✅ Phase 4.1 – Average Calculation Bug fixed
+- ✅ Phase 4.2 – Student Search Bug fixed
+- ✅ Phase 4.3 – Marks Validation Bug fixed
+- 🟨 Next: Phase 4.4 – Persistence Bug

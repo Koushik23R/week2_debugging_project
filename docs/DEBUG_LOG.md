@@ -225,3 +225,23 @@ Seven documented, reproducible bugs are now available for the debugging phase.
 
 ### Outcome
 - The student search now returns the correct record and Bug 2 is resolved.
+
+## Phase 4.3 – Bug 3 Resolution
+
+**Date:** 2026-09-10
+
+### Investigation
+- Reproduced the marks validation defect in `buggy_version/student.py` by creating a student with marks `250`.
+- Confirmed the constructor accepted invalid marks because the range check was `0-1000` instead of `0-100`.
+
+### Fix Applied
+- Updated the marks validation condition in `Student.__init__()` to enforce the correct range `0-100`.
+- Kept the fix limited to the validation logic without changing unrelated class behavior.
+
+### Verification
+- Added automated tests in `tests/test_buggy_marks_validation.py`.
+- Verified that marks `0` and `100` are accepted.
+- Verified that marks `101` and `-1` raise `ValueError`.
+
+### Outcome
+- Invalid marks are now rejected correctly, and Bug 3 is resolved with automated verification.

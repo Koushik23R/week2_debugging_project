@@ -96,9 +96,17 @@ Validation error.
 
 Student added successfully.
 
+### Root Cause
+
+The `Student` model in `buggy_version/student.py` validated marks against `0-1000` instead of `0-100`, so out-of-range marks like `250` were treated as valid.
+
+### Resolution
+
+Corrected the validation range to `0-100` and added automated unit tests to verify valid boundaries and rejection of invalid marks.
+
 ### Status
 
-Open
+Closed
 
 ---
 

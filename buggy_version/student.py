@@ -21,7 +21,7 @@ class Student:
             raise ValueError("Name cannot be empty or contain only whitespace.")
 
         # Validate marks
-        if not (0 <= marks <= 1000):#bug3 introduced a bug here, marks should be between 0 and 100
+        if not (0 <= marks <= 100):
             raise ValueError("Marks must be between 0 and 100.")
 
         # Use a more descriptive attribute name to avoid shadowing built-in 'id'
