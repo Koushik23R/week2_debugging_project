@@ -211,9 +211,17 @@ The application should reject duplicate student IDs and notify the user.
 
 Both student records are added successfully with the same ID.
 
+### Root Cause
+
+`add_student()` in `buggy_version/student_manager.py` did not check whether the given `student_id` already existed before appending a new student.
+
+### Resolution
+
+Added a duplicate-ID guard in `add_student()` to return failure when `find_student(student_id)` already matches an existing record.
+
 ### Status
 
-Open
+Closed
 
 ---
 

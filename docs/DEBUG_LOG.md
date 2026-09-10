@@ -284,3 +284,22 @@ Seven documented, reproducible bugs are now available for the debugging phase.
 
 ### Outcome
 - Corrupted JSON no longer crashes loading flow, and Bug 5 is resolved.
+
+## Phase 4.6 – Bug 6 Resolution
+
+**Date:** 2026-09-10
+
+### Investigation
+- Reproduced the duplicate ID issue by adding two students with the same ID.
+- Confirmed `add_student()` in `buggy_version/student_manager.py` lacked a pre-insert uniqueness check.
+
+### Fix Applied
+- Added a guard in `add_student()` to reject insertion when `find_student(student_id)` finds an existing record.
+- Kept the change minimal and localized to creation flow.
+
+### Verification
+- Added `tests/test_buggy_duplicate_id_bug.py`.
+- Verified first insert succeeds, duplicate insert fails, and final in-memory record count remains unchanged.
+
+### Outcome
+- Duplicate student IDs are now rejected correctly, and Bug 6 is resolved.
