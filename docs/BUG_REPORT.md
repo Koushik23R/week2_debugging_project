@@ -1,5 +1,23 @@
 # Bug Report
 
+## Executive Summary
+
+- Total bugs identified: **7**
+- Total bugs resolved: **7**
+- Current status: **All documented bugs closed**
+
+| Bug ID | Title | Status |
+|---|---|---|
+| 1 | Average calculation returns incorrect value | Closed |
+| 2 | Student search returns incorrect result | Closed |
+| 3 | Invalid marks accepted | Closed |
+| 4 | Updated marks are not persisted after restarting the application | Closed |
+| 5 | Application crashes when the JSON data file is corrupted | Closed |
+| 6 | Duplicate student IDs are accepted | Closed |
+| 7 | Menu input containing leading or trailing spaces is rejected | Closed |
+
+---
+
 ## Bug 1
 
 ### Title
