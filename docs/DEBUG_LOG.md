@@ -322,3 +322,23 @@ Seven documented, reproducible bugs are now available for the debugging phase.
 
 ### Outcome
 - CLI now handles leading/trailing spaces for menu options, and Bug 7 is resolved.
+
+## Phase 5 – Automated Testing
+
+**Date:** 2026-09-10
+
+### Work Completed
+- Reworked legacy script-style test files into proper `unittest` test modules.
+- Organized tests by responsibility in separate files:
+  - `tests/test_student.py`
+  - `tests/test_storage.py`
+  - `tests/test_student_manager.py`
+  - plus bug-focused regression tests (`test_buggy_*` files).
+- Isolated storage-related tests with dedicated test JSON files under `tests/data`.
+
+### Verification
+- Ran `python -m unittest discover -s tests -v`.
+- Confirmed all tests pass (24/24), including regression checks for all fixed bugs.
+
+### Outcome
+- The repository now has structured, repeatable automated testing that validates both core behavior and resolved defects.

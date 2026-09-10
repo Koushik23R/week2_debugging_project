@@ -1,76 +1,56 @@
+import json
 import sys
+import unittest
 from pathlib import Path
 
 project_root = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(project_root / "fixed_version"))
-sys.path.insert(0, str(project_root))
+sys.path.insert(0, str(project_root / "buggy_version"))
 
-from fixed_version.student import Student
-from fixed_version import storage
-from fixed_version.storage import save_students, load_students
-
-DATA_FILE = project_root / "fixed_version" / "data" / "students.json"
-storage.DATA_FILE = DATA_FILE
-DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
+import storage
+from student import Student
 
 
-# Test 1: Save Students
-print("=== Save Students ===")
+class TestStorage(unittest.TestCase):
+    def setUp(self):
+        self.test_data_file = project_root / "tests" / "data" / "students_storage_test.json"
+        self.test_data_file.parent.mkdir(parents=True, exist_ok=True)
+        if self.test_data_file.exists():
+            self.test_data_file.unlink()
+        storage.DATA_FILE = self.test_data_file
 
-students = [
-    Student(101, "Alice", 89),
-    Student(102, "Bob", 76),
-    Student(103, "Charlie", 91)
-]
+    def tearDown(self):
+        if self.test_data_file.exists():
+            self.test_data_file.unlink()
 
-if save_students(students):
-    print("Saved Successfully")
-else:
-    print("Save Failed")
+    def test_save_and_load_students(self):
+        students = [Student(101, "Alice", 89), Student(102, "Bob", 76)]
 
+        self.assertTrue(storage.save_students(students))
 
-# Test 2: Load Students
-print("\n=== Load Students ===")
+        loaded = storage.load_students()
+        self.assertEqual(len(loaded), 2)
+        self.assertEqual(loaded[0].student_id, 101)
+        self.assertEqual(loaded[1].student_id, 102)
 
-loaded_students = load_students()
+    def test_load_missing_file_returns_empty_list(self):
+        self.assertEqual(storage.load_students(), [])
 
-print(f"{len(loaded_students)} students loaded.")
+    def test_load_empty_file_returns_empty_list(self):
+        self.test_data_file.write_text("", encoding="utf-8")
+        self.assertEqual(storage.load_students(), [])
 
-for student in loaded_students:
-    print(student)
+    def test_load_corrupted_json_returns_empty_list(self):
+        self.test_data_file.write_text("{", encoding="utf-8")
+        self.assertEqual(storage.load_students(), [])
 
+    def test_load_valid_json_list(self):
+        payload = [{"student_id": 301, "name": "Eve", "marks": 84, "created_at": "2026-09-10T10:00:00"}]
+        self.test_data_file.write_text(json.dumps(payload), encoding="utf-8")
 
-# Test 3: Empty File
-print("\n=== Empty File Test ===")
-
-with open(DATA_FILE, "w", encoding="utf-8") as file:
-    file.write("")
-
-result = load_students()
-
-print("PASS" if result == [] else "FAIL")
-
-
-# Test 4: Corrupted JSON
-print("\n=== Corrupted JSON Test ===")
-
-with open(DATA_FILE, "w", encoding="utf-8") as file:
-    file.write("{")
-
-result = load_students()
-
-print("PASS" if result == [] else "FAIL")
+        loaded = storage.load_students()
+        self.assertEqual(len(loaded), 1)
+        self.assertEqual(loaded[0].name, "Eve")
 
 
-# Test 5: Missing File
-print("\n=== Missing File Test ===")
-
-if DATA_FILE.exists():
-    DATA_FILE.unlink()
-
-result = load_students()
-
-print("PASS" if result == [] else "FAIL")
-
-# Restore valid sample data so later runs are not left with a missing file
-save_students(students)
+if __name__ == "__main__":
+    unittest.main()
