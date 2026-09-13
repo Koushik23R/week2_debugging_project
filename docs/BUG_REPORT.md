@@ -1,5 +1,23 @@
 # Bug Report
 
+## Executive Summary
+
+- Total bugs identified: **7**
+- Total bugs resolved: **7**
+- Current status: **All documented bugs closed**
+
+| Bug ID | Title | Status |
+|---|---|---|
+| 1 | Average calculation returns incorrect value | Closed |
+| 2 | Student search returns incorrect result | Closed |
+| 3 | Invalid marks accepted | Closed |
+| 4 | Updated marks are not persisted after restarting the application | Closed |
+| 5 | Application crashes when the JSON data file is corrupted | Closed |
+| 6 | Duplicate student IDs are accepted | Closed |
+| 7 | Menu input containing leading or trailing spaces is rejected | Closed |
+
+---
+
 ## Bug 1
 
 ### Title
@@ -96,9 +114,17 @@ Validation error.
 
 Student added successfully.
 
+### Root Cause
+
+The `Student` model in `buggy_version/student.py` validated marks against `0-1000` instead of `0-100`, so out-of-range marks like `250` were treated as valid.
+
+### Resolution
+
+Corrected the validation range to `0-100` and added automated unit tests to verify valid boundaries and rejection of invalid marks.
+
 ### Status
 
-Open
+Closed
 
 ---
 
@@ -128,9 +154,17 @@ The updated marks should be saved and displayed after restarting.
 
 The student's old marks are displayed because the update was not saved.
 
+### Root Cause
+
+In `buggy_version/student_manager.py`, `update_marks()` returned `True` immediately after changing the in-memory value, without calling `save_students()`.
+
+### Resolution
+
+Updated `update_marks()` to persist changes with `save_students(self._students)` before returning success, and rollback to old marks if persistence fails.
+
 ### Status
 
-Open
+Closed
 
 ---
 
@@ -158,9 +192,17 @@ The application should handle the corrupted file gracefully and display an appro
 
 The application crashes with a `JSONDecodeError`.
 
+### Root Cause
+
+`buggy_version/storage.py` did not handle `json.JSONDecodeError` inside `load_students()`, so corrupted JSON bubbled up and crashed the application path that loads student data.
+
+### Resolution
+
+Added explicit handling for `json.JSONDecodeError` in `load_students()` to safely return an empty list when JSON is corrupted.
+
 ### Status
 
-Open
+Closed
 
 ---
 
@@ -187,9 +229,17 @@ The application should reject duplicate student IDs and notify the user.
 
 Both student records are added successfully with the same ID.
 
+### Root Cause
+
+`add_student()` in `buggy_version/student_manager.py` did not check whether the given `student_id` already existed before appending a new student.
+
+### Resolution
+
+Added a duplicate-ID guard in `add_student()` to return failure when `find_student(student_id)` already matches an existing record.
+
 ### Status
 
-Open
+Closed
 
 ---
 
@@ -216,6 +266,14 @@ The application should trim whitespace and accept the menu option.
 
 The application rejects the input and displays an invalid menu choice message.
 
+### Root Cause
+
+In `buggy_version/main.py`, menu input was read without trimming whitespace, so values like `" 1"` or `"1 "` failed `isdigit()` validation.
+
+### Resolution
+
+Updated menu input handling to call `.strip()` before validation, allowing valid numeric choices with leading/trailing spaces.
+
 ### Status
 
-Open
+Closed

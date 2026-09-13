@@ -225,3 +225,137 @@ Seven documented, reproducible bugs are now available for the debugging phase.
 
 ### Outcome
 - The student search now returns the correct record and Bug 2 is resolved.
+
+## Phase 4.3 – Bug 3 Resolution
+
+**Date:** 2026-09-10
+
+### Investigation
+- Reproduced the marks validation defect in `buggy_version/student.py` by creating a student with marks `250`.
+- Confirmed the constructor accepted invalid marks because the range check was `0-1000` instead of `0-100`.
+
+### Fix Applied
+- Updated the marks validation condition in `Student.__init__()` to enforce the correct range `0-100`.
+- Kept the fix limited to the validation logic without changing unrelated class behavior.
+
+### Verification
+- Added automated tests in `tests/test_buggy_marks_validation.py`.
+- Verified that marks `0` and `100` are accepted.
+- Verified that marks `101` and `-1` raise `ValueError`.
+
+### Outcome
+- Invalid marks are now rejected correctly, and Bug 3 is resolved with automated verification.
+
+## Phase 4.4 – Bug 4 Resolution
+
+**Date:** 2026-09-10
+
+### Investigation
+- Reproduced the persistence defect by updating a student's marks, restarting the manager, and observing old marks in reloaded data.
+- Identified that `update_marks()` in `buggy_version/student_manager.py` returned success before writing changes to disk.
+
+### Fix Applied
+- Restored persistence flow in `update_marks()` so it calls `save_students(self._students)` after in-memory update.
+- Kept rollback logic to restore previous marks when save fails.
+
+### Verification
+- Added `tests/test_buggy_persistence_bug.py` to verify updated marks remain after creating a new manager instance.
+- Confirmed the test passes and updated marks persist across reload.
+
+### Outcome
+- Marks updates are now durably saved, and Bug 4 is resolved.
+
+## Phase 4.5 – Bug 5 Resolution
+
+**Date:** 2026-09-10
+
+### Investigation
+- Reproduced startup failure by corrupting the JSON file and loading the application.
+- Traced failure to `load_students()` in `buggy_version/storage.py`, where `json.loads()` raised `JSONDecodeError` without dedicated handling.
+
+### Fix Applied
+- Added `except json.JSONDecodeError: return []` in `load_students()` to gracefully handle corrupted JSON content.
+- Kept the storage API behavior unchanged for valid JSON and other error paths.
+
+### Verification
+- Added `tests/test_buggy_json_handling_bug.py`.
+- Verified corrupted JSON now returns an empty list instead of crashing.
+- Verified valid JSON still loads student records correctly.
+
+### Outcome
+- Corrupted JSON no longer crashes loading flow, and Bug 5 is resolved.
+
+## Phase 4.6 – Bug 6 Resolution
+
+**Date:** 2026-09-10
+
+### Investigation
+- Reproduced the duplicate ID issue by adding two students with the same ID.
+- Confirmed `add_student()` in `buggy_version/student_manager.py` lacked a pre-insert uniqueness check.
+
+### Fix Applied
+- Added a guard in `add_student()` to reject insertion when `find_student(student_id)` finds an existing record.
+- Kept the change minimal and localized to creation flow.
+
+### Verification
+- Added `tests/test_buggy_duplicate_id_bug.py`.
+- Verified first insert succeeds, duplicate insert fails, and final in-memory record count remains unchanged.
+
+### Outcome
+- Duplicate student IDs are now rejected correctly, and Bug 6 is resolved.
+
+## Phase 4.7 – Bug 7 Resolution
+
+**Date:** 2026-09-10
+
+### Investigation
+- Reproduced CLI failure by entering a valid menu option with surrounding spaces.
+- Confirmed `choice` in `buggy_version/main.py` was validated without stripping whitespace first.
+
+### Fix Applied
+- Updated menu input read path to `input(...).strip()` before numeric validation.
+- Left all menu routing logic unchanged.
+
+### Verification
+- Added `tests/test_buggy_cli_input_bug.py`.
+- Verified `" 8 "` is accepted as valid input and exits cleanly without invalid-number warning.
+
+### Outcome
+- CLI now handles leading/trailing spaces for menu options, and Bug 7 is resolved.
+
+## Phase 5 – Automated Testing
+
+**Date:** 2026-09-10
+
+### Work Completed
+- Reworked legacy script-style test files into proper `unittest` test modules.
+- Organized tests by responsibility in separate files:
+  - `tests/test_student.py`
+  - `tests/test_storage.py`
+  - `tests/test_student_manager.py`
+  - plus bug-focused regression tests (`test_buggy_*` files).
+- Isolated storage-related tests with dedicated test JSON files under `tests/data`.
+
+### Verification
+- Ran `python -m unittest discover -s tests -v`.
+- Confirmed all tests pass (24/24), including regression checks for all fixed bugs.
+
+### Outcome
+- The repository now has structured, repeatable automated testing that validates both core behavior and resolved defects.
+
+## Phase 6 – Documentation and Final Report Preparation
+
+**Date:** 2026-09-10
+
+### Work Completed
+- Polished `README.md` into a submission-ready project document.
+- Added `docs/FINAL_REPORT_CONTENT.md` containing structured final-report narrative ready for Word conversion.
+- Enhanced `docs/BUG_REPORT.md` with an executive summary and status table.
+- Preserved all prior phase evidence while improving presentation and clarity.
+
+### Verification
+- Reviewed documentation consistency across README, debug log, bug report, and test coverage.
+- Re-ran automated tests to confirm documentation updates did not alter application behavior.
+
+### Outcome
+- Repository documentation is now professional, complete, and aligned with internship evaluation criteria.

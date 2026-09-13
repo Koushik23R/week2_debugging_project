@@ -54,8 +54,7 @@ def load_students() -> list[Student]:
         return []
 
 
-    except FileNotFoundError:
-
+    except json.JSONDecodeError:
         return []
 
 
