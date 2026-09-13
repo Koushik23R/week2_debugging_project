@@ -1,0 +1,209 @@
+# Phase 2.1 – Design Before Coding
+
+## Goal
+
+Before writing a single line of code, define **what the application does** and **how it's structured**. This is a practice followed in real software development and will also strengthen your report later.
+
+> **Important:** We are **not writing any Python code in this phase.**
+
+---
+
+# Application Overview
+
+## Project Name
+
+**Student Grade Management System (CLI)**
+
+---
+
+## Objective
+
+Develop a command-line application that allows users to manage student records, including adding students, updating marks, calculating averages, searching records, and storing data persistently in a JSON file.
+
+This gives us enough complexity to later introduce and debug realistic issues.
+
+---
+
+# Features
+
+The application will support:
+
+1. Add Student
+2. View All Students
+3. Search Student
+4. Update Student Marks
+5. Delete Student
+6. Calculate Class Average
+7. Find Top Scorer
+8. Exit
+
+---
+
+# Data Model
+
+Each student will contain:
+
+```text
+Student
+--------------------------
+ID
+Name
+Marks
+Created At
+```
+
+Example:
+
+```text
+ID : 101
+Name : Alice
+Marks : 87
+Created : 2026-08-31 12:30
+```
+
+We'll use a class because it's cleaner than dictionaries and lets us demonstrate OOP.
+
+---
+
+# Architecture
+
+```
+main.py
+    │
+    ▼
+StudentManager
+    │
+    ▼
+Student
+    │
+    ▼
+storage.py
+    │
+    ▼
+students.json
+```
+
+Responsibilities:
+
+### main.py
+
+* Display menu
+* Read user input
+* Call manager methods
+
+---
+
+### student.py
+
+Represents a single student.
+
+Stores:
+
+* ID
+* Name
+* Marks
+* Timestamp
+
+---
+
+### student_manager.py
+
+Business logic.
+
+Responsible for:
+
+* Add student
+* Delete student
+* Search
+* Update
+* Average
+* Topper
+
+---
+
+### storage.py
+
+Only:
+
+* Save JSON
+* Load JSON
+
+---
+
+# Project Structure
+
+Update your folders slightly.
+
+```
+week2_debugging_project/
+
+buggy_version/
+│
+├── main.py
+├── student.py
+├── student_manager.py
+├── storage.py
+└── data/
+      students.json
+
+fixed_version/
+│
+├── main.py
+├── student.py
+├── student_manager.py
+├── storage.py
+└── data/
+      students.json
+
+tests/
+
+docs/
+
+README.md
+```
+
+Notice:
+
+Both versions have identical structure.
+
+Only the implementation differs.
+
+---
+
+# README Update
+
+Append a new section.
+
+```markdown
+## Planned Application
+
+The project demonstrates debugging techniques using a Student Grade Management System developed as a command-line application.
+
+The application will allow users to:
+
+- Add student records
+- View students
+- Search students
+- Update marks
+- Delete records
+- Calculate class average
+- Display the highest scoring student
+
+The project follows a modular architecture separating the CLI, business logic, data model, and storage layers.
+```
+
+---
+
+# Verification Checklist
+
+
+
+* [ ] README updated
+* [ ] Folder structure updated (including `data/` inside both versions)
+* [ ] No Python code written yet
+* [ ] Architecture documented
+
+---
+.
+
+

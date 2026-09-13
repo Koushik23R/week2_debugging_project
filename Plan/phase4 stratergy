@@ -1,0 +1,15 @@
+Reproduce Bug
+        ↓
+Identify Root Cause
+        ↓
+(Optional) Use pdb
+        ↓
+Fix the Bug
+        ↓
+Verify the Fix
+        ↓
+Update BUG_REPORT.md
+        ↓
+Update DEBUG_LOG.md
+        ↓
+Commit

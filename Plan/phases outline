@@ -1,0 +1,41 @@
+✅ Phase 1
+Project Initialization
+
+✅ Phase 2.1
+Architecture Design
+
+✅ Phase 2.2
+Student Model
+
+✅ Phase 2.3
+Storage Layer
+
+✅ Phase 2.4
+Student Manager
+
+✅ Phase 2.5
+Command Line Interface
+
+✅ Phase 3.1
+Bug Set 1
+
+✅ Phase 3.2
+Bug Set 2
+
+🟨 Phase 4
+Debugging & Troubleshooting
+
+✅ Phase 4.1 - Average Calculation Bug Fixed
+✅ Phase 4.2 - Student Search Bug Fixed
+🟨 Phase 4.3 - Marks Validation Bug (Current)
+
+⬜ Phase 4.4 - Persistence Bug
+⬜ Phase 4.5 - JSON Handling Bug
+⬜ Phase 4.6 - Duplicate ID Bug
+⬜ Phase 4.7 - CLI Input Bug
+
+⬜ Phase 5
+Automated Testing
+
+⬜ Phase 6
+Documentation & Final Report
