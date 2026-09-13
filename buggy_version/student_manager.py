@@ -10,9 +10,6 @@ class StudentManager:
         return self._students.copy()
 
     def add_student(self, student_id: int, name: str, marks: float) -> Student | None:
-        if self.find_student(student_id) is not None:
-            return None
-
         student = Student(student_id, name, marks)
 
         self._students.append(student)
@@ -25,7 +22,7 @@ class StudentManager:
 
     def find_student(self, student_id: int) -> Student | None:
         for student in self._students:
-            if student.student_id == student_id:
+            if student.student_id != student_id:
                 return student
 
         return None
@@ -57,18 +54,14 @@ class StudentManager:
 
         student.marks = new_marks
 
-        if save_students(self._students):
-            return True
-
-        student.marks = old_marks
-        return False
+        return True
 
     def calculate_average(self) -> float:
         if not self._students:
             return 0.0
 
         total = sum(student.marks for student in self._students)
-        return total / len(self._students)
+        return total // len(self._students)
 
     def get_top_student(self) -> Student | None:
         if not self._students:

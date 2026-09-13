@@ -3,13 +3,13 @@ import unittest
 from pathlib import Path
 
 project_root = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(project_root / "buggy_version"))
+sys.path.insert(0, str(project_root / "fixed_version"))
 
 import storage
 from student_manager import StudentManager
 
 
-class TestBuggyVersionDuplicateIdHandling(unittest.TestCase):
+class TestFixedVersionDuplicateIdHandling(unittest.TestCase):
     def setUp(self):
         self.test_data_file = project_root / "tests" / "data" / "students_duplicate_id_bug.json"
         self.test_data_file.parent.mkdir(parents=True, exist_ok=True)
@@ -30,6 +30,10 @@ class TestBuggyVersionDuplicateIdHandling(unittest.TestCase):
         self.assertIsNotNone(first_student)
         self.assertIsNone(second_student)
         self.assertEqual(len(manager.get_students()), 1)
+        original = manager.find_student(4001)
+        self.assertIsNotNone(original)
+        self.assertEqual(original.name, "Alice")
+        self.assertEqual(original.marks, 90)
 
 
 if __name__ == "__main__":

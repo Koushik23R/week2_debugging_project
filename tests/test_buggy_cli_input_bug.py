@@ -4,7 +4,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 project_root = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(project_root / "buggy_version"))
+sys.path.insert(0, str(project_root / "fixed_version"))
 
 import main
 
@@ -32,7 +32,7 @@ class DummyManager:
         return None
 
 
-class TestBuggyVersionCliInputHandling(unittest.TestCase):
+class TestFixedVersionCliInputHandling(unittest.TestCase):
     def test_menu_choice_with_whitespace_is_accepted(self):
         with patch.object(main, "StudentManager", return_value=DummyManager()):
             with patch("builtins.input", side_effect=[" 8 "]):

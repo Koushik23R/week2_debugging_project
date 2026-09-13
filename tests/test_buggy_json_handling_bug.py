@@ -4,12 +4,12 @@ import unittest
 from pathlib import Path
 
 project_root = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(project_root / "buggy_version"))
+sys.path.insert(0, str(project_root / "fixed_version"))
 
 import storage
 
 
-class TestBuggyVersionJsonHandling(unittest.TestCase):
+class TestFixedVersionJsonHandling(unittest.TestCase):
     def setUp(self):
         self.test_data_file = project_root / "tests" / "data" / "students_json_bug.json"
         self.test_data_file.parent.mkdir(parents=True, exist_ok=True)

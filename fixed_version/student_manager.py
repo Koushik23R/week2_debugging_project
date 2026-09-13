@@ -10,6 +10,9 @@ class StudentManager:
         return self._students.copy()
 
     def add_student(self, student_id: int, name: str, marks: float) -> Student | None:
+        if self.find_student(student_id) is not None:
+            return None
+
         student = Student(student_id, name, marks)
 
         self._students.append(student)

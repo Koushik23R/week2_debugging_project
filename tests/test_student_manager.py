@@ -3,7 +3,7 @@ import unittest
 from pathlib import Path
 
 project_root = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(project_root / "buggy_version"))
+sys.path.insert(0, str(project_root / "fixed_version"))
 
 import storage
 from student_manager import StudentManager
@@ -31,9 +31,22 @@ class TestStudentManager(unittest.TestCase):
         self.assertEqual(found.name, "Alice")
 
     def test_duplicate_id_is_rejected(self):
-        self.manager.add_student(102, "Bob", 76)
+        first_student = self.manager.add_student(102, "Bob", 76)
         duplicate = self.manager.add_student(102, "Bobby", 60)
+
+        self.assertIsNotNone(first_student)
         self.assertIsNone(duplicate)
+        self.assertEqual(len(self.manager.get_students()), 1)
+
+        original = self.manager.find_student(102)
+        self.assertIsNotNone(original)
+        self.assertEqual(original.name, "Bob")
+        self.assertEqual(original.marks, 76)
+
+        self.assertTrue(self.manager.update_marks(102, 88))
+        self.assertEqual(self.manager.find_student(102).marks, 88)
+        self.assertTrue(self.manager.remove_student(102))
+        self.assertIsNone(self.manager.find_student(102))
 
     def test_update_marks_persists(self):
         self.manager.add_student(103, "Charlie", 70)

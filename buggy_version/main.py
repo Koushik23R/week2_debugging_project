@@ -31,7 +31,7 @@ def main() -> None:
     while True:
         print_menu()
 
-        choice = input("Enter your choice: ").strip()
+        choice = input("Enter your choice: ")
 
         if not choice.isdigit():
             print("Please enter a valid number.")

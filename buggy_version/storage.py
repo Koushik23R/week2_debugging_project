@@ -54,10 +54,6 @@ def load_students() -> list[Student]:
         return []
 
 
-    except json.JSONDecodeError:
-        return []
-
-
     except OSError:
 
         return []

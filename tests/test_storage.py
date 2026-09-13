@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 
 project_root = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(project_root / "buggy_version"))
+sys.path.insert(0, str(project_root / "fixed_version"))
 
 import storage
 from student import Student

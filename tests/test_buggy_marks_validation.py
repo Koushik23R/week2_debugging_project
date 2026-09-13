@@ -3,12 +3,12 @@ import unittest
 from pathlib import Path
 
 project_root = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(project_root / "buggy_version"))
+sys.path.insert(0, str(project_root / "fixed_version"))
 
 from student import Student
 
 
-class TestBuggyVersionMarksValidation(unittest.TestCase):
+class TestFixedVersionMarksValidation(unittest.TestCase):
     def test_marks_boundaries_are_allowed(self):
         self.assertEqual(Student(1, "Alice", 0).marks, 0)
         self.assertEqual(Student(2, "Bob", 100).marks, 100)
